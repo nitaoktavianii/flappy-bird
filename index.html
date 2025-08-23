@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <div class="score-info">
+                <div class="score-item">
+                    <span class="label">Score</span>
+                    <span class="value" id="currentScore">0/10</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Lives</span>
+                    <div class="hearts">
+                        <span class="heart" id="heart1">♥</span>
+                        <span class="heart" id="heart2">♥</span>
+                        <span class="heart" id="heart3">♥</span>
+                    </div>
+                </div>
+                <div class="score-item">
+                    <span class="label">Best</span>
+                    <span class="value" id="highScore">0</span>
+                </div>
+                <div class="audio-controls">
+                    <button id="audioToggle" class="audio-btn" title="Toggle Sound">
+                        <span id="audioIcon">🔊</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Game Overlays -->
+        <div class="game-overlay">
+            <!-- Start Screen -->
+            <div class="screen start-screen" id="startScreen">
+                <div class="screen-content">
+                    <h1>🐦 Flappy Bird</h1>
+                    <div class="instructions">
+                        <p>Press <kbd>SPACE</kbd> or <kbd>CLICK</kbd> to fly</p>
+                        <p>Collect 10 points to win!</p>
+                        <p>You have 3 lives ♥</p>
+                    </div>
+                    <button id="startButton" class="btn btn-primary">Start Game</button>
+                </div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div class="screen game-over-screen" id="gameOverScreen">
+                <div class="screen-content">
+                    <h2>💀 Game Over</h2>
+                    <div class="score-summary">
+                        <div class="score-row">
+                            <span>Final Score:</span>
+                            <span id="finalScore">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span>Best Score:</span>
+                            <span id="finalHighScore">0</span>
+                        </div>
+                    </div>
+                    <button id="restartButton" class="btn btn-secondary">Try Again</button>
+                </div>
+            </div>
+
+            <!-- Win Screen -->
+            <div class="screen win-screen" id="winScreen">
+                <div class="screen-content">
+                    <h2>🎉 You Win!</h2>
+                    <div class="score-summary">
+                        <p>Congratulations!</p>
+                        <p>You reached 10 points!</p>
+                        <div class="score-row">
+                            <span>Best Score:</span>
+                            <span id="winHighScore">0</span>
+                        </div>
+                    </div>
+                    <button id="playAgainButton" class="btn btn-success">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
