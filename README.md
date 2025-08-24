@@ -9,11 +9,4 @@
 
 <img width="1919" height="992" alt="Screenshot 2025-08-24 132549" src="https://github.com/user-attachments/assets/ddd99f8e-1c0d-4cce-be43-a8e690f5842d" />
 
-Project Structure:
-
-flappy-bird/
-├── index.html
-├── style.css
-├── main.js
-
 MIT License © 2025 Nita Oktaviani
