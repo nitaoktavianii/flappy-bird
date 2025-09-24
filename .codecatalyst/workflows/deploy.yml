@@ -24,7 +24,7 @@ Actions:
             - dist/**
 
   Deploy:
-    Identifier: aws/build@v1   # 👉 jangan pakai aws/cli-run@v1
+    Identifier: aws/build@v1
     Inputs:
       Artifacts:
         - buildOutput
@@ -32,3 +32,8 @@ Actions:
       Steps:
         - Run: echo "Deploying to S3..."
         - Run: aws s3 sync dist s3://nita-flappybird-demo --delete
+    Environment:
+      Name: FlappyEnv
+      Connections:
+        - Name: "022717055444"   # AWS Account ID kamu
+          Role: "CodeCatalystWorkflowDevelopmentRole-demo-app1"
