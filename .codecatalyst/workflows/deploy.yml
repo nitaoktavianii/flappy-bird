@@ -15,8 +15,8 @@ Actions:
     Configuration:
       Steps:
         - Run: echo "Building Flappy Bird game..."
-        - Run: mkdir dist
-        - Run: cp -r * dist/
+        - Run: mkdir -p dist
+        - Run: cp index.html style.css main.js dist/
     Outputs:
       Artifacts:
         - Name: buildOutput
@@ -24,10 +24,11 @@ Actions:
             - dist/**
 
   Deploy:
-    Identifier: aws/build@v1
+    Identifier: aws/build@v1   # 👉 jangan pakai aws/cli-run@v1
     Inputs:
       Artifacts:
         - buildOutput
     Configuration:
       Steps:
+        - Run: echo "Deploying to S3..."
         - Run: aws s3 sync dist s3://nita-flappybird-demo --delete
