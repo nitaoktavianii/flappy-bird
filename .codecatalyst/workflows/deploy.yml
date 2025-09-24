@@ -1,0 +1,33 @@
+Name: Deploy Flappy Bird
+SchemaVersion: 1.0
+
+Triggers:
+  - Type: Push
+    Branches:
+      - main
+
+Actions:
+  Build:
+    Identifier: aws/build@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Configuration:
+      Commands:
+        - echo "Building Flappy Bird game..."
+        - mkdir dist
+        - cp -r * dist/
+    Outputs:
+      Artifacts:
+        - Name: buildOutput
+          Files: dist/**
+
+  Deploy:
+    Identifier: aws/s3-deploy@v1
+    Inputs:
+      Artifacts:
+        - buildOutput
+    Configuration:
+      Region: ap-southeast-1
+      BucketName: nita-flappybird-demo
+      Extract: true
